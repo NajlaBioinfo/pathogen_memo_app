@@ -17,16 +17,14 @@ flask-script = "*"
 marshmallow = "*"
 flask-bcrypt = "*"
 pyjwt = "*"
-python-dotenv = "*"
 uwsgi = "*"
 Bootstrap-Flask = "*"
 Flask-WTF = "*"
 flask-swagger-ui = "*"
-flask-login = "*"
 matplotlib = "*"
 pandas = "*"
 wordcloud = "*"
-
+pipfile = "*"
 
 [requires]
 python_version = "3.8"
