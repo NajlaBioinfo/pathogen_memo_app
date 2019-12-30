@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, Flask, jsonify, url_for, redirect, request, flash
 from sys import version
-from forms import pathogen_form
+from pathogen_memo.forms import pathogen_form
 
 #from models import pathogen
-from controllers import savequery
+from pathogen_memo.controllers import savequery
 
 #Set word_count_site_name
 cudv = Blueprint('cudv', __name__)

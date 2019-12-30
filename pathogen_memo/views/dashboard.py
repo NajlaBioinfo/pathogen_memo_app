@@ -5,12 +5,12 @@ from flask import current_app as app
 #from .assets import compile_auth_assets
 from flask_login import login_required
 
-from views.barplota import barplota
-from views.barplotb import barplotb
-from views.barplotc import barplotc
-from views.barplotd import barplotd
+from pathogen_memo.views.barplota import barplota
+from pathogen_memo.views.barplotb import barplotb
+from pathogen_memo.views.barplotc import barplotc
+from pathogen_memo.views.barplotd import barplotd
 
-from controllers import countqueries
+from pathogen_memo.controllers import countqueries
 
 
 # Blueprint Configuration

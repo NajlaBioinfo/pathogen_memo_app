@@ -7,7 +7,7 @@ import base64
 from flask_login import login_required
 
 import os 
-from controllers import countbyquery
+from pathogen_memo.controllers import countbyquery
 
 #Set word_count_site_name
 barplotbv = Blueprint('barplotbv', __name__)

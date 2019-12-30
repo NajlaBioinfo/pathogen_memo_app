@@ -7,7 +7,7 @@ import numpy as np
 from io import BytesIO
 import base64
 from flask_login import login_required
-from controllers import distinctcounting
+from pathogen_memo.controllers import distinctcounting
 
 
 #Set word_count_site_name

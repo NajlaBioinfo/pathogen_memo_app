@@ -2,10 +2,10 @@ from flask import Blueprint, render_template, redirect, request
 from sys import version
 from flask import Flask, jsonify
 
-from forms import pathogen_updateform
+from pathogen_memo.forms import pathogen_updateform
 
-from controllers import updatequery
-from controllers import getallquery
+from pathogen_memo.controllers import updatequery
+from pathogen_memo.controllers import getallquery
 
 
 #Set word_count_site_name

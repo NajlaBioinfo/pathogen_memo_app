@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 
 
 
-from controllers import getallquery
+from pathogen_memo.controllers import getallquery
 
 
 #Set word_count_site_name

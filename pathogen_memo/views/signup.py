@@ -9,7 +9,7 @@ from flask import current_app as app
 from werkzeug.security import generate_password_hash, check_password_hash
 from sys import version
 
-from forms import login_form, signup_form
+from pathogen_memo.forms import login_form, signup_form
 from flask_login import LoginManager
 
 
