@@ -9,7 +9,7 @@ from pathogen_memo.forms import login_form, signup_form
 from flask_login import LoginManager
 
 from pathogen_memo.models import User
-
+from pathogen_memo.extensions import db
 
 # Blueprint Configuration
 auth_bp = Blueprint('auth_bp', __name__)
