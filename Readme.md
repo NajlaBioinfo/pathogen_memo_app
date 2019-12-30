@@ -2,6 +2,7 @@
 
 ![alt text](pathogen_memo/static/img/flaskpython.png "PathogenMemo_icon")
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/230990869.svg)](https://zenodo.org/badge/latestdoi/230990869)
 
 * About:
 	
