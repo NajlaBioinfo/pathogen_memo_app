@@ -18,8 +18,9 @@ def get_query_count(criteria, criteriaval):
     password = os.environ.get('DBPASS')
     dbhost = os.environ.get('DBHOST')
 
+    con = psycopg2.connect(database=dbname, user=username, password=password, host=dbhost, port=5432)
     try:
-        con = psycopg2.connect(database=dbname, user=username, password=password, host=dbhost, port=5432)
+        #con = psycopg2.connect(database=dbname, user=username, password=password, host=dbhost, port=5432)
         cur =  con.cursor() # cursor
 
         count_select_Query = "SELECT * FROM pathogens WHERE " + criteria + " = %s" 

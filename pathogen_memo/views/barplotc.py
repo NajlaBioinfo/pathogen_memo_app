@@ -38,7 +38,7 @@ def barplotc():
 
     plt.show()
 
-    filePath = 'static/img/barplotc.png'
+    filePath = 'pathogen_memo/static/img/barplotc.png'
     if os.path.exists(filePath):
         os.remove(filePath)
     plt.savefig(filePath, ext='png', bbox_inches="tight")

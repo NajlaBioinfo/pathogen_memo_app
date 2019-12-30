@@ -45,5 +45,5 @@ def barplotd():
     ax.pie(counthab, labels = habitats,autopct='%1.2f%%')
     plt.show()
 
-    plt.savefig('static/img/barplotd.png', ext='png', bbox_inches="tight")
+    plt.savefig('pathogen_memo/static/img/barplotd.png', ext='png', bbox_inches="tight")
     return render_template('dashboard.html', url='/static/img/barplotd.png')

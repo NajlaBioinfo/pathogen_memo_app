@@ -36,7 +36,10 @@ def create_app(config_file='settings.py'):
     """
     Launch script: create pathogen-memo-app
     """
-    app = Flask(__name__)
+    app = Flask(__name__,
+            static_folder='static',
+            static_url_path= '/static',
+            template_folder='templates')
 
     #SETTINGS
     app.config.from_pyfile(config_file)
