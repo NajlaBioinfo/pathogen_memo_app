@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'meta.html' %}
+    {% block pagestyles %}{% endblock %}
+    <link  rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min-441.css') }}"  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css') }}" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/poppins.css') }}" rel="stylesheet">
+  </head>
+  <body class="{{template}}">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+    <!-- Scripts -->
+    {% include 'scripts.html' %}
+    {% block additionalscripts %}{% endblock %}
+  </body>
+</html>

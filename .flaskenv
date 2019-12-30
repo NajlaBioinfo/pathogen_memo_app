@@ -1,0 +1,3 @@
+
+FLASK_ENVpr=production
+FLASK_APP=pathogen_memo

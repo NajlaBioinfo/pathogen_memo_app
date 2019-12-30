@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block pagestyles %}
+  <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet"  href="{{ url_for('static', filename='css/dashboard.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="container-flex">
+      <h3 class="count-total-patho">Total Pathogens present in the database : {{ data }}</h3>
+      <div class="row">
+        <div class="col">         
+          <div class="container-png">
+              <h5 class="png-title">Gram coloration</h5>
+              <img src="{{ url_for('static', filename='img/barplota.png') }}" alt="Barplota" height="auto" width="80%">
+          </div>
+        </div>
+        <div class="col">
+            <div class="container-png">
+              <h5 class="png-title">Aerobe</h5>
+              <img src="{{ url_for('static', filename='img/barplotb.png') }}" alt="Barplotb" height="auto" width="80%">
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <br/>
+        <hr/>
+        <br/>
+        <div class="w-100"></div>
+        <div class="col">
+            <div class="container-png">
+              <h5 class="png-title">Pathogenicity</h5>
+              <img src="{{ url_for('static', filename='img/barplotc.png') }}" alt="Barplotc" height="auto" width="80%">
+            </div>
+        </div>
+        <div class="col">
+            <div class="container-png">
+              <h5 class="png-title">Isolation</h5>
+              <img src="{{ url_for('static', filename='img/barplotd.png') }}" alt="Barplotd" height="auto" width="80%">
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

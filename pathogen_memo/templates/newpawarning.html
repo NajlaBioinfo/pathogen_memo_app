@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="cud-formatting">CUD, Create-Update-Delete from, Patho-Memo-DB </h2>
+    <div class="container">
+        <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/cud">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Update</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delete</a>
+            </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Create Pathogen member : oops ;) </h5>
+                <div class="alert alert-warning" role="alert">
+                The pathogen submitted is in database already, Please check it in the list at the home page :) .
+                </div>
+        </div>
+        </div>   
+    </div>
+{% endblock %}

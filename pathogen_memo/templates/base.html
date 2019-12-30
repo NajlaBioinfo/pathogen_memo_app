@@ -1,0 +1,54 @@
+{% from 'bootstrap/nav.html' import render_nav_item %}
+{% from 'bootstrap/utils.html' import render_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PathogenMemo</title>
+    <link  rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link  rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/tablestyle.css') }}" />
+    <link  rel="stylesheet"  type="text/css"  href="{{ url_for('static', filename='css/bootstrap.min-441.css') }}" />
+    <link  rel="stylesheet"  type="text/css"  href="{{ url_for('static', filename='css/dataTables.bootstrap4.min.css') }}" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {{ render_nav_item('indexv.index', 'Home', use_li=True) }}
+                {{ render_nav_item('aboutv.about', 'About', use_li=True) }}
+                {{ render_nav_item('swagger_ui.show', 'RestAPI', use_li=True) }}
+                {{ render_nav_item('cudv.cud', 'CUD', use_li=True) }}
+                {{ render_nav_item('main_bp.dashboard', 'Dashboard', use_li=True) }}
+                {{ render_nav_item('auth_bp.signup_page', 'SignUp', use_li=True) }}
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+
+        <div class="container">
+            {% include 'loginstate.html' %}
+        </div>
+        {% block content %}
+            
+	    {% endblock %}
+    </main>
+    <hr/>
+    <footer class="text-center">
+        {% block footer %}
+            <small> &copy; 2019 <a href="https://github.com/NajlaBioinfo" title="Flask REST-API">Najlabioinfo</a>
+            </small>
+        {% endblock %}
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>   
+    <script src="{{ url_for('static', filename='js/tableresponse.js') }}"></script>   
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="cud-formatting">CUD, Create-Update-Delete from, Patho-Memo-DB </h2>
+    <div class="container">
+        <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/cud">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/update">Update</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/delete">Delete</a>
+            </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Update Pathogen file</h5>
+                <div class="formwrapper">
+                <h2 class="title">Pathogen n° [ {{ data[0][0] }}] - charateristics to update</h2>
+                <form method="POST" action="/updatepatho">
+                   <div class="form-field">{{ form.id.label }} {{ form.id(size = 5, value= data[0][0]) }}</div>
+                    <div class="form-field">{{ form.organism.label }} {{ form.organism(size = 30, value= data[0][1]) }}</div>
+                    <div class="form-field">{{ form.taxonid.label }} {{ form.taxonid(value= data[0][2]) }}</div>
+                    <div class="form-field">{{ form.rank.label }} {{ form.rank(value= data[0][3]) }}</div>
+                    <div class="form-field">{{ form.aerobe.label }} {{ form.aerobe(size = 40, value= data[0][4]) }}</div>
+                    <div class="form-field">{{ form.gram.label }} {{ form.gram(value= data[0][5]) }}</div>
+                    <div class="form-field">{{ form.habitat.label }} {{ form.habitat(size = 100, value= data[0][6]) }}</div>
+                    <div class="form-field">{{ form.isolation.label }} {{ form.isolation(size = 100, value= data[0][7]) }}</div>
+                    <div class="form-field">{{ form.pathostate.label }} {{ form.pathostate(value= data[0][8]) }}</div>
+                    {{ form.submit }}
+                </form>
+                </div>
+        </div>
+        </div>   
+    </div>
+{% endblock %}

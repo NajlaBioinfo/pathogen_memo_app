@@ -1,0 +1,89 @@
+.container-flex {
+    width: 100%;
+    display: inline-flexbox;
+}
+.container-png {
+    width: 85%;
+    display: inline-block;
+}
+
+.container {
+    width:98%;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+    
+.table-wrapper-scroll-y {
+display: block;
+}
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+    background-color: lightpink;
+    color: rebeccapurple;
+}
+
+.table-striped tbody tr:nth-child(even) td,
+.table-striped tbody tr:nth-child(even) th {
+    /*background-color: rgba(182, 238, 210, 0.644);*/
+    background-color: whitesmoke;
+    color: navy;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.cud-formatting{
+    /*box-align: center;*/
+    color: navy;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.formwrapper{
+    display: inline-block;
+    width:80%;
+    text-align: left;
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    align-content: left;
+}
+
+/*.label {
+    display: inline-block;
+    width:100px;
+    text-align: left;
+}
+*/
+
+.authenticateformat{
+    display: inline;
+    width:80%;
+    text-align: right;
+    color: rebeccapurple;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    align-content: right;
+    font-size: small;
+    font-display: inherit;
+}
+
+.loginstate{
+    display: inline;
+    text-align: right;
+    align-content: right;
+    font-display: inherit; 
+}
+
+.count-total-patho{
+    text-align: left;
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    align-content: left;
+}
+
+.png-title{
+    text-align: center;
+    color:navy;
+    font-family: 'Times New Roman', Times, serif;
+}

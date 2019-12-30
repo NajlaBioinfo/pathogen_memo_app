@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="cud-formatting">CUD, Create-Update-Delete from, Patho-Memo-DB </h2>
+    <div class="container">
+        <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="/cud">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/update">Update</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/delete">Delete</a>
+            </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Create Pathogen member</h5>
+                <div class="formwrapper">
+                <h2 class="title">Pathogen charateristics</h2>
+                <form method="POST" action="/newpathogen">
+                    <div class="form-field">{{ form.organism.label }} {{ form.organism(size=20) }}</div>
+                    <div class="form-field">{{ form.taxonid.label }} {{ form.taxonid }}</div>
+                    <div class="form-field">{{ form.rank.label }} {{ form.rank }}</div>
+                    <div class="form-field">{{ form.gram.label }} {{ form.gram }}</div>
+                    <div class="form-field">{{ form.aerobe.label }} {{ form.aerobe }}</div>
+                    <div class="form-field">{{ form.habitat.label }} {{ form.habitat }}</div>
+                    <div class="form-field">{{ form.isolation.label }} {{ form.isolation }}</div>
+                    <div class="form-field">{{ form.pathostate.label }} {{ form.pathostate }}</div>
+                    {{ form.submit }}
+                </form>
+                </div>
+        </div>
+        </div>   
+    </div>
+{% endblock %}

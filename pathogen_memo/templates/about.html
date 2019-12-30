@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>About, Patho-Memo-RestAPI </h2>
+    <div class="alert alert-primary" role="alert">
+    This is a demo, A short Pathogen list with some characteristics and NCBI/Uniprot databases correspodent links
+    displayed with a Python Flask RestApi.
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <h3>About,Some listed characteristics </h3>
+    <div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Rank</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Gram</a>
+        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-anaerobie" role="tab" aria-controls="messages">Aerobe</a>
+        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-host" role="tab" aria-controls="settings">Host</a>
+        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-patho" role="tab" aria-controls="settings">PathoState</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                About Rank <br/>
+                <p>Specie, Genus, Family, Order, Class</p>
+            </div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                About Gram <br/>
+                <p>Gram-Positive, Gram-Negative</p>
+            </div>
+            <div class="tab-pane fade" id="list-anaerobie" role="tabpanel" aria-labelledby="list-anaerobie-list">
+                About Aerobe <br/>
+                <p> Anaerobe, Aerobe, Aerobe facultative </p>
+            </div>
+            <div class="tab-pane fade" id="list-host" role="tabpanel" aria-labelledby="list-host-list">
+                About Host <br/>
+                <p>Human, Animal, Vegetal</p>
+            </div>
+            <div class="tab-pane fade" id="list-patho" role="tabpanel" aria-labelledby="list-patho-list">
+                About Pathogenicity <br/>
+                <p> Pathogen, Potential Pathogen, Non Pathogen </p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

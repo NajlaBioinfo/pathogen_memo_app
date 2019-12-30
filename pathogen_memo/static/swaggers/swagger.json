@@ -1,0 +1,294 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Pathogen Memo Python Flask RestAPI",
+      "version": "1.0.0",
+      "title": "Pathogen Memo Python Flask RestAPI",
+      "contact": {
+        "email": "bhndevtools@gmail.com"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Pathogen Request",
+        "description": "Pathogen Memo Python Flask RestAPI"
+      }
+    ],
+    "paths": {
+      "/getallpathogens": {
+        "get": {
+          "tags": [
+            "Pathogen Request"
+          ],
+          "summary": "Returns All Pathogens",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/pathogenRequests"
+              }
+            }
+          }
+        }
+      },
+      "/createpathogen": {
+        "post": {
+          "tags": [
+            "Pathogen Request"
+          ],
+          "summary": "Create a new pathogen member",
+          "requestBody": {
+            "description": "Pathogen Request Post Object",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/pathogenRequestPostBody"
+                }
+              }
+            }
+          },
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }
+      },
+      "/getpathogenbyid/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the pathogen that we want to match",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Pathogen Request"
+          ],
+          "summary": "Get pathogen request with given ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Pathogen Request id",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/pathogenRequest"
+              }
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Pathogen request not found."
+            }
+          }
+        }},
+        "/updatepathogen/{id}": {
+        "put": {
+          "summary": "Edit a pathogen request by ID",
+          "tags": [
+            "Pathogen Request"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Pathogen Request id",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "Pathogen Request Object",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/pathogenRequest"
+                }
+              }
+            }
+          },
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/pathogenRequest"
+              }
+            },
+            "400": {
+              "description": "Failed. Bad post data."
+            }
+          }
+        }},
+        "/deletepathogen/{id}": {
+        "delete": {
+          "summary": "Delete Pathogen Request by ID",
+          "tags": [
+            "Pathogen Request"
+          ],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Pathogen Request Id",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/id"
+              }
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Pathogen Request not found."
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "id": {
+          "properties": {
+            "uuid": {
+              "type": "string"
+            }
+          }
+        },
+        "pathogenRequestPostBody": {
+          "type": "object",
+          "properties": {
+            "organism": {
+              "type": "string",
+              "format": "string"
+            },
+            "taxonid": {
+              "type": "string",
+              "format": "string"
+              },
+              "rank": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "aerobe": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "gram": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "habitat": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "isolation": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "pathostate": {
+                  "type": "string",
+                  "format": "string"
+              }
+            }
+        },
+        "pathogenRequest": {
+          "type": "object",
+          "properties": {
+            "organism": {
+              "type": "string",
+              "format": "string"
+              },
+            "taxonid": {
+              "type": "string",
+              "format": "string"
+            },
+            "rank": {
+              "type": "string",
+              "format": "string"
+            },
+            "aerobe": {
+                "type": "string",
+                "format": "string"
+              },
+              "gram": {
+                "type": "string",
+                "format": "string"
+              },
+              "habitat": {
+                "type": "string",
+                "format": "string"
+              },
+              "isolation": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "pathostate": {
+                  "type": "string",
+                  "format": "string"
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "number"
+              }
+            }
+        },
+        "pathogenRequests": {
+          "type": "object",
+          "properties": {
+            "pathogenRequest": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/components/schemas/pathogenRequest"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
