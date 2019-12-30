@@ -1,6 +1,7 @@
 # PathogenMemoApp
 
-![alt text](static/img/flaskpython.png "PathogenMemo_icon")
+![alt text](pathogen_memo/static/img/flaskpython.png "PathogenMemo_icon")
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * About:
 	
@@ -19,7 +20,7 @@
 
 
 * Link:
-<a href="" > some heroku link </a>
+<a href="https://pathogen-memo.herokuapp.com"> https://pathogen-memo.herokuapp.com </a>
 
 ##### - Author
 Najlabioinfo
