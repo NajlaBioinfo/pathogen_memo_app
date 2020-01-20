@@ -25,6 +25,7 @@ pandas==0.25.3
 Pillow==6.2.1
 pipfile==0.0.2
 psycopg2==2.8.4
+psycopg2-binary==2.8.4
 pycparser==2.19
 PyJWT==1.7.1
 pyparsing==2.4.6

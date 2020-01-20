@@ -1,3 +1,11 @@
-
-FLASK_ENVpr=production
 FLASK_APP=pathogen_memo
+FLASK_ENV=development
+DATABASE_URL=postgresql://localhost:5432/pathogendb
+DATABASE_ENG=postgresql://postgres:postgres@localhost/pathogendb
+DATABASE_URI=postgres+psycopg2://postgres:postgres@localhost:5432/pathogendb
+DBUSER=postgres
+DBPASS=postgres
+DBCALL=pathogendb
+DBHOST=localhost
+DBNAME=localhost:5432/pathogendb
+SECRET_KEY=somesecretkey

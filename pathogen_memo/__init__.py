@@ -45,8 +45,12 @@ def create_app(config_file='settings.py'):
     app.config.from_pyfile(config_file)
 
     #INITIALIZATIONS
+ 
     #__DB INIT
     db.init_app(app)
+    #COMMANDS CALL
+    app.cli.add_command(create_tables)
+    
     #__LOGIN-MANGER INIT
     login_manager.init_app(app)
 
@@ -142,6 +146,6 @@ def create_app(config_file='settings.py'):
 
 
     #COMMANDS CALL
-    app.cli.add_command(create_tables)
+    #app.cli.add_command(create_tables)
 
     return app

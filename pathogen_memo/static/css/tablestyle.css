@@ -7,23 +7,30 @@
     display: inline-block;
 }
 
-.container {
+.container-main {
     width:98%;
+}
+
+.container {
+    width:100%;
 }
 
 .my-custom-scrollbar {
     position: relative;
-    height: 400px;
+    height: 450px;
     overflow: auto;
     }
     
 .table-wrapper-scroll-y {
 display: block;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
     background-color: lightpink;
     color: rebeccapurple;
+    font-size: smaller;
 }
 
 .table-striped tbody tr:nth-child(even) td,
@@ -32,7 +39,13 @@ display: block;
     background-color: whitesmoke;
     color: navy;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: smaller;
 }
+
+.td{
+    width:10%;
+}
+
 .cud-formatting{
     /*box-align: center;*/
     color: navy;
