@@ -18,8 +18,23 @@
 >> Login:hello@gmail.com // Pass: helloH9 , if you want to test the app.
 - Responsive graphics (Matplotlib.)
 
+* HowTo (Dev)
+- You can build your own image for the application
 
-* Link:
+```bash
+docker build -t pathogen-memo-pack . 
+```
+
+- Then  Run the application with the cmd below:
+
+```bash
+docker run -it -p 8080:8080 -p 5432:5432 -p 5000:5000 pathogen-memo-pack:latest
+```
+- SignUp:
+http://yourserver:5000/signup
+
+
+* Link: Demo (Production)
 <a href="https://pathogen-memo.herokuapp.com"> https://pathogen-memo.herokuapp.com </a>
 
 ##### - Author
