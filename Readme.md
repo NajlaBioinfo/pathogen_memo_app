@@ -8,7 +8,8 @@
 	A Flask REST-API displaying some characteristics of serveral Pathogens/Potential Pathogens (demo).
 
 
-* Some features used /tested
+
+* Some Tech/ Features used /tested
 
 - Responsive table : Displaying data from database.
 - REST-SWAGGER(OpenApi:3.0.0) : Rest-API module for somes entries.
@@ -18,7 +19,9 @@
 >> Login:hello@gmail.com // Pass: helloH9 , if you want to test the app.
 - Responsive graphics (Matplotlib.)
 
-* HowTo (Dev)
+
+
+* HowTo : One container Strategy (Dev)
 - You can build your own image for the application
 
 ```bash
@@ -32,6 +35,15 @@ docker run -it -p 8080:8080 -p 5432:5432 -p 5000:5000 pathogen-memo-pack:latest
 ```
 - SignUp:
 http://yourserver:5000/signup
+
+
+
+* HowTo: Docker-compose Strategy (Prod)
+```bash
+docker-compose down -v
+docker-compose -f docker-compose.yml up -d --build
+```
+
 
 
 * Link: Demo (Production)

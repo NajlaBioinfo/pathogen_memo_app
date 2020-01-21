@@ -1,0 +1,102 @@
+###########
+# BUILDER #
+###########
+
+# pull official base image
+FROM python:3.8.1-buster as builder
+
+# set work directory
+WORKDIR /najlabioinfo/pathogenMemoPackage/
+
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV PATH /usr/local/bin:$PATH
+ENV LANG C.UTF-8
+
+
+# Global lib needed
+RUN apt-get update -y
+RUN apt-get install sudo -y
+RUN sudo apt-get install build-essential -y
+RUN sudo apt-get install tree git curl wget less libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev -y
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		libbluetooth-dev \
+		tk-dev \
+		uuid-dev \
+	&& rm -rf /var/lib/apt/lists/*
+
+
+RUN python3.8 -V
+
+# install psycopg2 dependencies
+RUN apt-get update -y
+RUN apt-get -y upgrade
+RUN sudo apt-get install postgresql postgresql-contrib postgresql-client -y
+RUN sudo apt-get install python-psycopg2 -y
+RUN apt-get -y upgrade
+RUN apt-get update -y
+
+
+# lint
+RUN pip install --upgrade pip
+RUN pip install flake8
+COPY . /najlabioinfo/pathogenMemoPackage/
+RUN flake8 --ignore=E501,F401 .
+
+# install dependencies
+COPY ./requirements.txt .
+
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /najlabioinfo/pathogenMemoPackage/wheels -r requirements.txt
+
+
+#########
+# FINAL #
+#########
+
+# pull official base image
+FROM python:3.8.1-buster
+
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# create the app user
+#RUN addgroup -S app && useradd -S app -G app
+#RUN groupadd -g ${gid} ${group} && useradd -u ${uid} -g ${group} -s /bin/sh ${user}
+RUN groupadd -g 12345 app && useradd -u 12345 -g app -s /bin/sh app
+RUN apt-get update -y
+RUN apt-get install sudo -y
+RUN sudo apt-get install build-essential -y
+RUN apt-get -y upgrade
+RUN apt-get update -y
+
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/web
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+# install dependencies
+
+COPY --from=builder /najlabioinfo/pathogenMemoPackage/wheels /wheels
+COPY --from=builder /najlabioinfo/pathogenMemoPackage/requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install --no-cache /wheels/*
+
+# copy entrypoint-prod.sh
+COPY ./entrypoint.prod.sh $APP_HOME
+
+# copy project
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R app:app $APP_HOME
+
+# change to the app user
+USER app
+
+# run entrypoint.prod.sh
+ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
