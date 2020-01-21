@@ -3,40 +3,31 @@ import uuid
 from datetime import datetime, timedelta
 from flask import jsonify, abort, request, Blueprint
 
-
+import json
 REQUEST_API = Blueprint('request_api', __name__)
-
+PATHOGENS_FILE_NAME='/najlabioinfo/pathogenMemoPackage/demodata/pathogens.json'
 
 def get_blueprint():
     """Return the blueprint for the main app module"""
     return REQUEST_API
 
 
-PATHOGEN_REQUESTS = {
-    "652": {
-        'organism': u'Aeromonas schubertii',
-        'taxonid': u'652',
-        'rank': u'species',
-        'aerobe': u'NA',
-        'gram': u'Gram-negative',
-        'habitat': u'Human, Animal, Vegetal',
-        'isolation' : u'fish, meat, milk, vegetables',
-        'pathostate': u'Pathogen',
-        'timestamp': (datetime.today() - timedelta(1)).timestamp()
-    },
-    "673": {
-        'organism': u'Grimontia hollisae',
-        'taxonid': u'673',
-        'rank': u'species',
-        'aerobe': u'Aerobic',
-        'gram': u'Gram-negative',
-        'habitat': u'NA',
-        'isolation' : u'undercooked/contaminated seafood',
-        'pathostate': u'Pathogen',
-        'timestamp': (datetime.today() - timedelta(2)).timestamp()
-    }
-}
+def pars_pathogens_json_tab(FILE_NAME):
+    PATHOGENS_FOR_REST={}
+    pathogens_items={}
+    with open(FILE_NAME) as f:
+        data = json.load(f)
+        #print(json.dumps(data, indent = 4, sort_keys=True))
 
+        for pathogens_dict in data:
+            pathogens_items=pathogens_dict
+            PATHOGENS_FOR_REST[pathogens_items["taxonid"]]=pathogens_items
+
+    #print(PATHOGENS_FOR_REST)
+    return PATHOGENS_FOR_REST
+
+#Func_Call
+PATHOGEN_REQUESTS = pars_pathogens_json_tab(PATHOGENS_FILE_NAME)
 
 @REQUEST_API.route('/getallpathogens', methods=['GET'])
 def get_records():
