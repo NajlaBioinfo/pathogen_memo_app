@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/230990869.svg)](https://zenodo.org/badge/latestdoi/230990869)
 
+
 * About:
 	
 	A Flask REST-API displaying some characteristics of serveral Pathogens/Potential Pathogens (demo).
@@ -22,7 +23,8 @@
 
 
 
-* HowTo : One container Strategy (Dev)
+### HowTo 
+	* One container Strategy (Dev)
 - You can build your own image for the application
 
 ```bash
@@ -39,7 +41,7 @@ http://yourserver:5000/signup
 
 
 
-* HowTo: Docker-compose Strategy (Prod)
+	* Docker-compose Strategy (Dev)
 ```bash
 docker-compose down -v
 docker-compose -f docker-compose.yml up -d --build
@@ -47,8 +49,11 @@ docker-compose -f docker-compose.yml up -d --build
 
 
 
-* Link: Demo (Production)
-<a href="https://pathogen-memo.herokuapp.com"> https://pathogen-memo.herokuapp.com </a>
+### - Link: Demo (Production)
+	* Demo (Production) : <a href="https://pathogen-memo.herokuapp.com"> https://pathogen-memo.herokuapp.com </a>
+	* PyPackageTest : https://test.pypi.org/manage/project/pathogen-memo
+
+
 
 ##### - Author
 Najlabioinfo
