@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pathogen_memo", # Replace with your own username
-    version="1.0.0",
+    version="1.1.1",
     author="NajlaBioinfo",
     author_email="bhnajla.bi@outlook.com",
     description="A small web application displaying friendly somes pathogen characteristics",
