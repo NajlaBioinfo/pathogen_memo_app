@@ -5,9 +5,8 @@
 [![DOI](https://zenodo.org/badge/230990869.svg)](https://zenodo.org/badge/latestdoi/230990869)
 
 
-* About:
-	
-	A Flask REST-API displaying some characteristics of serveral Pathogens/Potential Pathogens (demo).
+### * About:
+A Flask REST-API displaying some characteristics of serveral Pathogens/Potential Pathogens (demo).
 
 
 
@@ -22,7 +21,7 @@
 	- Responsive graphics (Matplotlib.)
 
 
-### HowTo 
+### - HowTo 
 
 ** One container Strategy (Dev)
 
@@ -56,8 +55,8 @@ docker-compose -f docker-compose.yml up -d --build
 
 
 
-##### - Author
+#### - Author
 Najlabioinfo
 
-##### -  License
+#### -  License
 MIT
