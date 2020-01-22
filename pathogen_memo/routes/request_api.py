@@ -3,10 +3,20 @@ import uuid
 from datetime import datetime, timedelta
 from flask import jsonify, abort, request, Blueprint
 
-import json
-REQUEST_API = Blueprint('request_api', __name__)
-PATHOGENS_FILE_NAME='/najlabioinfo/pathogenMemoPackage/demodata/pathogens.json'
 
+from pathogen_memo.controllers import genjsonrestapi
+
+import json
+
+REQUEST_API = Blueprint('request_api', __name__)
+
+
+## Create updated json file from db
+PATHOGENS_FILE_NAME='/najlabioinfo/pathogenMemoPackage/demodata/pathogens.json'
+genjsonrestapi.getjsonfile("taxonid, organism, rank, aerobe, gram, habitat, isolation, pathostate, timestamp", "pathogens", PATHOGENS_FILE_NAME)
+    
+
+    
 def get_blueprint():
     """Return the blueprint for the main app module"""
     return REQUEST_API
@@ -18,7 +28,7 @@ def pars_pathogens_json_tab(FILE_NAME):
     with open(FILE_NAME) as f:
         data = json.load(f)
         #print(json.dumps(data, indent = 4, sort_keys=True))
-
+    
         for pathogens_dict in data:
             pathogens_items=pathogens_dict
             PATHOGENS_FOR_REST[pathogens_items["taxonid"]]=pathogens_items
@@ -28,6 +38,7 @@ def pars_pathogens_json_tab(FILE_NAME):
 
 #Func_Call
 PATHOGEN_REQUESTS = pars_pathogens_json_tab(PATHOGENS_FILE_NAME)
+
 
 @REQUEST_API.route('/getallpathogens', methods=['GET'])
 def get_records():

@@ -57,6 +57,7 @@ def create_app(config_file='settings.py'):
 
 
     ###  __ Swagger settings __ [BEGIN] ###
+    ## Init routes
     @app.route('/static/<path:path>')
     def send_static(path):
         return send_from_directory('static',path)
